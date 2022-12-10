@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<div lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/styles.css">
+        <script src="wkScripts/wk9Script.js" defer></script>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+        <title>Week 9</title>
+    </head>
+
+    <body>
+        <!--Navigation Bar-->
+
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../index.html"><span id="oosan">Oo San</span>, Week 9</a>
+                <ul class="navbar-nav">
+                </ul>
+            </div>
+        </nav>
+
+        <h1 class="mb-5 mt-5 text-center display-5">Reservation request form</h1>
+        <div class="inputs">
+
+            <div class="formInfo">
+                <h4 class="mb-4">Please fill out the form below to book a reservation</h4>
+                <!-- <form class="form">  Deleted to keep messages from being deleted immediatly     -->
+                <label for="fName" class="form-label">Full Name</label>
+                <input type="text" class="form-control inputControl" id="fName"></input>
+
+                <label for="startDate" class="form-label">Start Date</label>
+                <input type="date" class="form-control inputControl" id="startDate"></input>
+
+                <label for="endDate" class="form-label">End Date</label>
+                <input type="date" class="form-control inputControl" id="endDate"></input>
+
+                <label for="guests" class="form-label"># of guests</label>
+                <input type="text" class="form-control inputControl" id="guests"></input>
+
+                <div class="prices" id="prices">
+                    <div class="inputsControl">
+                        <p style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+                            <b>Surcharge + $100<br>
+                                (for every guests > 2)
+                            </b></p>
+                        <div class="form-check mb-2 mt-2">
+
+                            <label class="form-check-label" for="kingBed">
+                                <input type="radio" class="form-check-input" id="kingBed" name="optradio"
+                                    value="option1">King Bed ($100)</label>
+                            </label>
+                        </div>
+                        <div class="form-check mb-2 mt-2">
+                            <label class="form-check-label" for="twoQueen">
+                                <input type="radio" class="form-check-input" id="twoQueen" name="optradio"
+                                    value="option2">Two Queen Bed ($120)</label>
+                            </label>
+                        </div>
+                        <div class="form-check mb-2 mt-2">
+                            <label class="form-check-label" for="oneQueen">
+                                <input type="radio" class="form-check-input" id="oneQueen" name="optradio"
+                                    value="option3">One Queen Bed ($90)</label>
+
+                            </label>
+                        </div>
+                    </div>
+                    <div id="priceOut"> </div>
+                </div>
+
+                <button class="btn btn-warning mb-2 mt-2" id="btnDelete" type="submit" style="margin-right: 1.3rem;"><a
+                        href="#deleteReservations">Delete Reservations</a></button>
+                <button class="btn btn-dark mb-2 mt-2" id="AddReservation">Submit Reservation</button>
+                <!-- </form> -->
+
+            </div>
+            <div class="hotelTable">
+                <h1 class="display-6 text-center my-1 pb-2">Reservations List</h1>
+                <h5 class="p-3">Rooms Available: <span id="msgRooms"></span></h5>
+                <table class="table" id="myTable">
+                    <tr>
+                        <th>Full Name</th>
+                        <th>Duration of stay</th>
+                        <th># of guests</th>
+                        <th>Bed Size</th>
+                    </tr>
+                    <tr>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <hr style="color:black!important; margin-top:7vh;" id="deleteReservations">
+
+        <h1 class="display-6 text-center"><b>Hotel Staff Use Only</b></h1>
+        <div class="container flexContainer" style="height: 85vh">
+
+
+            <fieldset>
+                <legend class="pt-5 mt-3">Reservation Delete form-control</legend>
+                <label for="fNameDelete" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="fNameDelete" placeholder="Enter full name">
+                <label for="guestsDelete" class="form-label"># of guests</label>
+                <input type="text" class="form-control" id="guestsDelete">
+                <button class="btn btn-danger mt-3" id="delete">Delete</button>
+            </fieldset>
+
+            <div class="display-5 msgOut pt-5 mt-3 text-success" id="msgOut"></div>
+
+        </div>
+
+    </body>
+
+    </html>

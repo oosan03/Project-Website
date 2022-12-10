@@ -1,0 +1,103 @@
+.body-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.formGroup {
+    position: fixed;
+    width: 500px;
+    height: 450px;
+    border: 3px solid #ccc;
+    box-shadow: 0 0 20rem rgb(209, 209, 209);
+    background-color: #465353;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.5rem;
+    color: white;
+    border-radius: 25px;
+}
+
+
+.pop-up {
+    position: fixed;
+    left: 0;
+    top: 5rem;
+    margin: 0 auto;
+    width: 100vw;
+    /* border: 2px solid white; */
+    text-align: center;
+    font-size: 2rem;
+    color: black;
+    height: 5rem;
+    /* display: none; */
+    animation: alert 800ms ease-out;
+}
+
+#span1 {
+    animation: loading-dots 500ms ease 0ms infinite;
+}
+
+#span2 {
+    animation: loading-dots 500ms ease 100ms infinite;
+}
+
+#span3 {
+    animation: loading-dots 500ms ease 200ms infinite;
+}
+
+@keyframes alert {
+    0% {
+        top: -5rem;
+    }
+}
+
+@keyframes loading-dots {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.pop-up>h1 {
+    border: 1px solid black;
+    width: 50%;
+    margin: 0 auto;
+    height: 5rem;
+    border-radius: 25px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.shake-animation {
+    animation: shake 200ms ease-in-out 0s 2;
+
+}
+
+@keyframes shake {
+    0% {
+        margin-left: 0rem;
+    }
+
+    25% {
+        margin-left: 0.5rem;
+    }
+
+    75% {
+        margin-left: -0.5rem;
+    }
+
+    100% {
+        margin-left: 0rem;
+    }
+}

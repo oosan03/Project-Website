@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<div lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/styles.css">
+        <script defer src="/scripts.js"></script>
+        <script defer src="wkScripts/wk6Script.js"></script>
+
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+        <title>Week 6</title>
+    </head>
+
+    <body>
+        <!--Navigation Bar-->
+
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../index.html"><span id="oosan">Oo San</span>, Week 6</a>
+                <ul class="navbar-nav">
+
+                </ul>
+            </div>
+        </nav>
+
+        <div class="week6Container mx-5 mt-5 mx-auto">
+
+            <ul class="nav nav-tabs ">
+                <li class="nav-item">
+                    <a class="nav-link mx-2 " href="#" onclick="tabChange()" id="ride">Ride height check</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mx-2" href="#" onclick="tabChange1()" id="retail">Discount day</a>
+                </li>
+
+            </ul>
+
+            <!-- Removable tab -->
+            <div class="display-3 mx-5 mt-4" id="remove">Select either tab to get started</div>
+
+            <!-- Ride Height Content -->
+            <div class="container" id="mainContent" style="height:100%; padding-bottom:2rem;">
+                <h1 class="contentHeader text-center p-3 mt-3">Welcome to our ride height checker!</h1>
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col mt-4 border border-light" style="background-color:rgba(28, 103, 173, 0.479); ">
+                            <h6 class="display-6 mt-3">Ride Height Checker</h6>
+                            <div class="mt-5 p-3">
+                                <h4
+                                    style="text-align:left; font-weight: 500; font-style:oblique; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                    Check if you are able to ride:</h4>
+                                <div class="pt-3" style="text-align:left;">
+                                    <button class="btn btn-secondary mx-3 mb-3" id="ridingAlone">Riding Alone</button>
+                                    <button class="btn btn-secondary mx-3 mb-3" id="ridingWGuardian">Riding With
+                                        Guardian</button>
+                                    <div class="pt-3 mx-3 mb-2" id="rideChoiceAlone">
+                                        <h6>Enter height in inches:</h6>
+                                        <input type="text" maxlength="3" size="2" id="heightAlone"><span> Inches</span>
+                                    </div>
+                                    <div class="pt-3 mx-3 mb-2" id="rideChoiceGuardian">
+                                        <h6>Enter YOUR height in inches:</h6>
+                                        <input type="text" maxlength="3" size="2" id="height"><span> Inches</span>
+                                        <h6 class="mt-3">Enter GUARDIAN height in inches:</h6>
+                                        <input type="text" maxlength="3" size="2" id="Gheight"><span> Inches</span>
+                                    </div>
+                                    <button type="submit" class="btn btn-success mx-3 mb-3 mt-5"
+                                        id="rideHeightSubmitbtn">Submit</button>
+                                    <div class="display-6" id="displayResults"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col mt-4">
+
+                            <div class="card" style="position:relative ;">
+                                <div class="card-body bg-dark">
+                                    <h4 class="card-title text-light">Ride Height Rules:</h4>
+                                    <p class="card-text">
+                                    <ul class="bold" style="text-align: left;">
+                                        <li>54 inches or taller to ride alone.</li>
+                                        <li>32 inches or taller and accompanied by a passenger 54 inches or taller.</li>
+                                    </ul>
+                                    </p>
+                                </div>
+                                <img class="card-img-top" src="/images/rollercoaster.avif" alt="Rollercoaster"
+                                    height="600rem" width="auto">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Discount Content -->
+            <div class="container" id="secondaryContent" style="height:75vh; padding-bottom:2rem;">
+
+                <h2 class="pt-3" style="text-align:center; font-weight: 400;">Discounts on Saturday's and Sunday's
+                    <p class="pt-2" style="font-weight: 200;">Todays date: <span id="todaysDate"></span></p>
+                </h2>
+
+                <p class="m-5" style="text-align:center; font-size: larger;">Enter you subtotal in the field below to
+                    check whether you qualify for a discount or not! <br><br>
+                    <b>Disclaimer: Program will only provide discounts on Saturday's and Sunday's <br>& only when
+                        subtotal is greater than $50.</b>
+                </p>
+                <div class="p-2 mx-3">
+                    <label for="subtotal">Enter Subtotal: <b>$</b></label>
+                    <input id="subtotal">
+                    <button class="btn btn-warning mx-2" id="btnDiscount">Check for Discounts</button>
+                </div>
+                <div class="display-6 p-2 mx-3 w-75" id="discountOutput" style="line-height: 4.5rem!important;"></div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <script>
+
+
+            secondaryContent = document.getElementById("secondaryContent");
+            mainContent = document.getElementById("mainContent");
+
+            function tabChange1() {
+                secondaryContent.classList.remove("hide");
+                document.getElementById("retail").classList.add("active");
+                document.getElementById("ride").classList.remove("active");
+                document.getElementById("ride").classList.add("fadeout");
+                document.getElementById("retail").classList.remove("fadeout");
+                if (document.getElementById("remove")) {
+                    document.getElementById("remove").parentNode.removeChild(remove);
+                }
+
+                document.getElementById("mainContent").classList.remove("show");
+                document.getElementById("secondaryContent").classList.add("show");
+                mainContent.classList.add("hide");
+                secondaryContent.classList.add("show");
+
+
+            }
+            function tabChange() {
+                mainContent.classList.remove("hide");
+                document.getElementById("ride").classList.add("active");
+                document.getElementById("retail").classList.remove("active");
+                document.getElementById("retail").classList.add("fadeout");
+                document.getElementById("ride").classList.remove("fadeout");
+                if (document.getElementById("remove")) {
+                    document.getElementById("remove").parentNode.removeChild(remove);
+                }
+                secondaryContent.classList.add("hide");
+                mainContent.classList.add("show");
+
+            }
+        </script>
+
+    </body>
+
+    </html>
